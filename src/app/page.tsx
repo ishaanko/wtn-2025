@@ -796,7 +796,7 @@ export default function Home() {
               Per county deaths from 2020 to 2023
             </motion.p>
             <motion.p
-              className="text-2xl font-normal"
+              className="text-2xl font-normal text-center"
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -805,7 +805,7 @@ export default function Home() {
               In this time, nearly <span className="font-bold text-red-600">every</span> recorded county has seen an increase in drug related deaths
             </motion.p>
           <motion.div
-            className="flex flex-col lg:flex-row-reverse py-16 gap-32 lg:items-center lg:justify-center"
+            className="flex flex-col lg:flex-row-reverse py-16 gap-16 lg:items-center lg:justify-center"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
@@ -834,7 +834,7 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="max-lg:text-center lg:w-1/4"
+              className="max-lg:text-center lg:w-1/3"
             >
               <motion.h3
                 key={animationKey} // Add this key to re-trigger animation
@@ -900,57 +900,57 @@ export default function Home() {
               </motion.div>
             </motion.div>
           </motion.div>
-        </div>
-        <motion.div
-          className="bg-gray-900 text-white py-10 px-4"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <motion.h3
-            className="text-5xl font-semibold text-center pb-8"
-            initial={{ opacity: 0, y: -20 }}
+            <motion.div
+            className="text-white py-10 px-4"
+            initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            And in 2023...
-          </motion.h3>
-          <motion.div
-            className="flex justify-center items-center py-8"
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            <img
-              src={"./opioidgraph.svg"}
-              alt="Opioid Graph"
-              className="w-[50%] h-auto max-w-md"
-            />
-            <motion.p
-              className="absolute text-8xl font-bold"
-              initial={{ opacity: 0, scale: 0.5 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
+            <motion.h3
+              className="text-5xl font-semibold text-center pb-8"
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              81%
+              And in 2023...
+            </motion.h3>
+            <motion.div
+              className="flex justify-center items-center py-8"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <img
+                src={"./opioidgraph.svg"}
+                alt="Opioid Graph"
+                className="w-[50%] h-auto max-w-md"
+              />
+              <motion.p
+                className="absolute text-8xl font-bold"
+                initial={{ opacity: 0, scale: 0.5 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                viewport={{ once: true }}
+              >
+                81%
+              </motion.p>
+            </motion.div>
+            <motion.p
+              className="px-24 text-center text-xl font-light italic text-gray-300"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <span className="font-bold text-red-600">2819</span> out of{" "}
+              <span className="font-bold text-red-600">3458</span> drug deaths
+              were caused by <span className="font-bold text-red-600">opioids</span>.
             </motion.p>
           </motion.div>
-          <motion.p
-            className="px-24 text-center text-xl font-light italic text-gray-300"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <span className="font-bold text-red-600">2819</span> out of{" "}
-            <span className="font-bold text-red-600">3458</span> drug deaths
-            were caused by <span className="font-bold text-red-600">opioids</span>.
-          </motion.p>
-        </motion.div>
+        </div>
         </section>
     </div>
   );
