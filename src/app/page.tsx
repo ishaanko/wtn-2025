@@ -4,22 +4,64 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
+import * as THREE from "three";
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 
 function PillyModel() {
   const { scene } = useGLTF("/pilly.glb");
+  const modelRef = useRef<THREE.Object3D>(null);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (modelRef.current) {
+        const scaleFactor = Math.min(window.innerWidth, window.innerHeight) / Math.max(window.innerWidth, window.innerHeight) * 3;
+        modelRef.current.scale.set(scaleFactor, scaleFactor, scaleFactor);
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  useFrame((state, delta) => {
+    if (modelRef.current) {
+      modelRef.current.rotation.z += 0.003 * delta * 60; // Rotate on y-axis based on frame time
+    }
+  });
+
   return (
     <primitive
+      ref={modelRef}
       object={scene}
-      scale={[window.innerWidth / 600, window.innerWidth / 600, window.innerWidth / 600]}
-      rotation={[Math.PI / 2, 0, 0]}
+      rotation={[Math.PI / 2 - 0.3, 0, 0]}
     />
   );
 }
+
 function Pilly2Model() {
   const { scene } = useGLTF("/pilly2.glb");
-  const modelRef = useRef();
+  const modelRef = useRef<THREE.Object3D>(null);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (modelRef.current) {
+        const scaleFactor = 2
+        modelRef.current.scale.set(scaleFactor, scaleFactor, scaleFactor);
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   useFrame((state, delta) => {
     if (modelRef.current) {
@@ -38,13 +80,11 @@ function Pilly2Model() {
     <primitive
       ref={modelRef}
       object={scene}
-      scale={[window.innerWidth / 600, window.innerWidth / 600, window.innerWidth / 600]}
       rotation={[0, 0.2, 0.2]}
       position={[0, 0, 0]}
     />
   );
 }
-
 
 export default function Home() {
   const [isHovered, setIsHovered] = useState(false);
@@ -53,7 +93,7 @@ export default function Home() {
     window.scrollBy({
       top: window.innerHeight,
       behavior: 'smooth'
-    });
+    }); 
   };
 
   const [glitchActive, setGlitchActive] = useState(false);
@@ -73,9 +113,6 @@ export default function Home() {
       <section className="relative h-screen flex flex-col justify-center items-center overflow-hidden px-4">
         <motion.div
           className="absolute inset-0"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 2 }}
         >
           <div className="absolute inset-0 bg-[url('/pill-bg.png')] bg-repeat opacity-3 mix-blend-overlay"></div>
           <div className="absolute inset-0 bg-gradient-to-b from-black/80 to-black/60 z-10"></div>
@@ -196,39 +233,59 @@ export default function Home() {
             <motion.div className="w-1 h-2 sm:h-3 bg-white/70 rounded-full" />
           </motion.div>
         </motion.div>
-        <div className="w-full absolute h-full z-0 blur-xs">
+        <motion.div
+          className="w-full absolute h-full z-0 blur-xs"
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.5, ease: "easeInOut" }}
+        >
             <Canvas className="">
             <ambientLight intensity={2} color="#ff2200" />
             <directionalLight position={[5, 5, 5]} intensity={3} color="blue" />
             <Pilly2Model />
             {/* <OrbitControls enableZoom={false} /> */}
             </Canvas>
-        </div>
+        </motion.div>
       </section>
 
       <section className="h-[80vh] flex lg:flex-row flex-col bg-gray-950 relative p-32">
-        <div className="flex flex-col justify-center items-start w-full lg:w-1/2 h-full lg:px-24">
+        <motion.div
+          className="flex flex-col justify-center items-start w-full lg:w-1/2 h-full lg:px-24"
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold pb-8">Overdose Trends</h2>
-          <p>According to Washington Tracking Network, all SURDORS (State Unintentional Drug Overdoes Reporting System) counties of any opioid-related overdose deaths have increased approximately 250% from 2020 to 2023. With there over 2,000 Washingtonians died from opioids every year, many due to fentanyl. Both urban and rural areas are effect with some counties in Washington seeing overdose dates way above the state average. </p>
-        </div>
-        <div className="w-1/2">
-          <Canvas className="h-full">
-            <ambientLight intensity={2} />
-            <directionalLight position={[5, 5, 5]} intensity={3} />
-            <PillyModel />
-            <OrbitControls enableZoom={false} />
+          <p>
+        According to Washington Tracking Network, all SURDORS (State Unintentional Drug Overdose Reporting System) counties of any opioid-related overdose deaths have increased approximately 250% from 2020 to 2023. With there over 2,000 Washingtonians dying from opioids every year, many due to fentanyl. Both urban and rural areas are affected, with some counties in Washington seeing overdose rates way above the state average.
+          </p>
+        </motion.div>
+        <motion.div
+          className="lg:w-1/2 w-full"
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <Canvas className="h-full w-full">
+        <ambientLight intensity={2} />
+        <directionalLight position={[5, 5, 5]} intensity={3} />
+        <PillyModel />
+        {/* <OrbitControls enableZoom={false} /> */}
           </Canvas>
-        </div>
+        </motion.div>
       </section>
+
       <section className="min-h-screen bg-gray-900 text-white relative py-20 px-4">
         <motion.div
-          className="absolute inset-0 z-0"
-          initial={{ opacity: 0 }}
+          className="absolute inset-0 z-0 opacity-0"
+          initial={{ opacity: 1 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1.5 }}
           viewport={{ once: true }}
         >
-          <div className="absolute inset=0 bg-[url('/pill-bg.png')] bg-repeat opacity-2 mix-blend-overlay"></div>
+          <div className="absolute inset-0 bg-[url('/pill-bg.png')] bg-repeat opacity-2 mix-blend-overlay"></div>
           <div className="absolute top-1/2 left-1/4 w-1/3 h-1/3 rounded-full bg-red-800/15 blur-[150px]"></div>
           <div className="absolute top-1/4 right-1/3 w-1/4 h-1/4 rounded-full bg-red-900/14 blur-[120px]"></div>
         </motion.div>
