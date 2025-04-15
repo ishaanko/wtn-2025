@@ -2,6 +2,49 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls, useGLTF } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
+import { useRef } from "react";
+
+function PillyModel() {
+  const { scene } = useGLTF("/pilly.glb");
+  return (
+    <primitive
+      object={scene}
+      scale={[window.innerWidth / 600, window.innerWidth / 600, window.innerWidth / 600]}
+      rotation={[Math.PI / 2, 0, 0]}
+    />
+  );
+}
+function Pilly2Model() {
+  const { scene } = useGLTF("/pilly2.glb");
+  const modelRef = useRef();
+
+  useFrame((state, delta) => {
+    if (modelRef.current) {
+      const scrollY = window.scrollY || 0;
+      modelRef.current.rotation.x = scrollY * 0.0015 + 0.2;
+      modelRef.current.rotation.y += 0.003 * delta * 60; // Rotate on y-axis based on frame time
+      modelRef.current.position.y = -scrollY * 0.01; // Adjust position based on scroll
+
+      // Apply random shaking effect
+      modelRef.current.position.x = (Math.random() - 0.5) * 0.04;
+      modelRef.current.position.z = (Math.random() - 0.5) * 0.04;
+    }
+  });
+
+  return (
+    <primitive
+      ref={modelRef}
+      object={scene}
+      scale={[window.innerWidth / 600, window.innerWidth / 600, window.innerWidth / 600]}
+      rotation={[0, 0.2, 0.2]}
+      position={[0, 0, 0]}
+    />
+  );
+}
+
 
 export default function Home() {
   const [isHovered, setIsHovered] = useState(false);
@@ -81,7 +124,7 @@ export default function Home() {
 
         <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 relative z-10 text-center">
           <motion.div
-            className="space-y-6 sm:space-y-8 mx-auto"
+            className="space-y-6 sm:space-y-8 mx-auto pb-32"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
@@ -153,7 +196,91 @@ export default function Home() {
             <motion.div className="w-1 h-2 sm:h-3 bg-white/70 rounded-full" />
           </motion.div>
         </motion.div>
+        <div className="w-full absolute h-full z-0 blur-xs">
+            <Canvas className="">
+            <ambientLight intensity={2} color="#ff2200" />
+            <directionalLight position={[5, 5, 5]} intensity={3} color="blue" />
+            <Pilly2Model />
+            {/* <OrbitControls enableZoom={false} /> */}
+            </Canvas>
+        </div>
+      </section>
+
+      <section className="h-[80vh] flex lg:flex-row flex-col bg-gray-950 relative p-32">
+        <div className="flex flex-col justify-center items-start w-full lg:w-1/2 h-full lg:px-24">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold pb-8">Overdose Trends</h2>
+          <p>According to Washington Tracking Network, all SURDORS (State Unintentional Drug Overdoes Reporting System) counties of any opioid-related overdose deaths have increased approximately 250% from 2020 to 2023. With there over 2,000 Washingtonians died from opioids every year, many due to fentanyl. Both urban and rural areas are effect with some counties in Washington seeing overdose dates way above the state average. </p>
+        </div>
+        <div className="w-1/2">
+          <Canvas className="h-full">
+            <ambientLight intensity={2} />
+            <directionalLight position={[5, 5, 5]} intensity={3} />
+            <PillyModel />
+            <OrbitControls enableZoom={false} />
+          </Canvas>
+        </div>
+      </section>
+      <section className="min-h-sccreen bg-gray-900 text-white relative py-20 px-4">
+        <motion.div
+          className="absolute inset-0 z-0"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1.5 }}
+          viewport={{ once: true }}
+        >
+          <div className="absolute inset=0 bg-[url('/pill-bg.png')] bg-repeat opacity-2 mix-blend-overlay"></div>
+          <div className="absolute top-1/2 left-1/4 w-1/3 h-1/3 rounded-full bg-red-800/15 blur-[150px]"></div>
+          <div className="absolute top-1/4 right-1/3 w-1/4 h-1/4 rounded-full bg-red-900/14 blur-[120px]"></div>
+        </motion.div>
+
+        <div className="max-w-6xl mx-auto relative z-10">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+              <span className="text-red-600">Real Stories</span> of Addiction
+            </h2>
+            <p className="text-gray-300 max-w-2xl mx-auto text-base sm:text-lg italic">
+              Behind every statistic is a human story. These are the voices that remind us why this fight matters.
+            </p>
+          </motion.div>
+          <div className="grid md:grid-cols-2 gap-8 mb-16">
+            <motion.div
+              className="bg-black/30 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <div className="relative pb-[56.25%] h-0">
+                <iframe
+                  className="absolute top-0 left-0 w-full h-full"
+                  src="https://www.youtube.com/embed/PfwO4rrd5CM"
+                  title="Opioid Addiction Story #1"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl sm:text-2xl font-bold mb-2">The Human Cost of Opioids</h3>
+                <p className="text-gray-300 text-sm sm:text-base">
+                  A raw glimpse into how opioid addiction destroys lives and tears families aprt,
+                  revealing the true human cost behind Washington&apos;s deadliest drug crisis.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
       </section>
     </div>
   );
 }
+
+useGLTF.preload('/pilly.glb');
+useGLTF.preload('/pilly2.glb');
+// Ensure to install the required dependencies:
+// npm install @react-three/fiber @react-three/drei three
