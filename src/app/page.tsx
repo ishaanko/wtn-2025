@@ -1,13 +1,14 @@
 "use client";
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Canvas } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 import { useFrame } from "@react-three/fiber";
-import { useRef } from "react";
 import Washington from "@/components/Washington";
 import deathData from "@/components/death_data.json";
+import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from "recharts";
+
 function PillyModel() {
   const { scene } = useGLTF("/pilly.glb");
   const modelRef = useRef<THREE.Object3D>(null);
@@ -81,6 +82,79 @@ function Pilly2Model() {
       rotation={[0, 0.2, 0.2]}
       position={[0, 0, 0]}
     />
+  );
+}
+
+// Add this chart component
+function OpioidOverdoseChart() {
+  const [selectedYear, setSelectedYear] = useState(null);
+  const chartData = [
+    { Year: 2019, Female: 35.75, Male: 64.25, Total: 100.0 },
+    { Year: 2020, Female: 26.2, Male: 73.8, Total: 100.0 },
+    { Year: 2021, Female: 28.23, Male: 71.77, Total: 100.0 },
+    { Year: 2022, Female: 25.26, Male: 74.74, Total: 100.0 },
+    { Year: 2023, Female: 24.06, Male: 75.94, Total: 100.0 },
+  ];
+
+  const handleBarClick = (data) => {
+    setSelectedYear(data);
+  };
+
+  return (
+    <div className="flex flex-col lg:flex-row gap-6">
+      <div className="bg-black/30 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 p-6 w-full lg:w-2/3">
+        <h3 className="text-xl font-bold mb-6 text-white">
+          Opioid & Stimulant Overdose Deaths by Sex (2019–2023)
+        </h3>
+        <ResponsiveContainer width="100%" height={400}>
+          <BarChart data={chartData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+            <XAxis dataKey="Year" stroke="#888" />
+            <YAxis unit="%" stroke="#888" />
+            <Tooltip
+              formatter={(value) => `${value.toFixed(2)}%`}
+              contentStyle={{ backgroundColor: 'rgba(0, 0, 0, 0.8)', border: '1px solid #333' }}
+              labelStyle={{ color: '#fff' }}
+            />
+            <Legend />
+            <Bar dataKey="Female" fill="#ff4d4d" name="Female" onClick={handleBarClick} />
+            <Bar dataKey="Male" fill="#ff8080" name="Male" onClick={handleBarClick} />
+          </BarChart>
+        </ResponsiveContainer>
+      </div>
+
+      <div className="bg-black/30 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 p-6 w-full lg:w-1/3">
+        <h3 className="text-xl font-bold mb-4 text-white">Year Details</h3>
+        {selectedYear ? (
+          <div className="space-y-4">
+            <div className="flex justify-between items-center border-b border-gray-800 pb-2">
+              <span className="text-gray-300">Year:</span>
+              <span className="text-white font-semibold">{selectedYear.Year}</span>
+            </div>
+            <div className="flex justify-between items-center border-b border-gray-800 pb-2">
+              <span className="text-gray-300">Female Deaths:</span>
+              <span className="text-red-400 font-semibold">{selectedYear.Female.toFixed(2)}%</span>
+            </div>
+            <div className="flex justify-between items-center border-b border-gray-800 pb-2">
+              <span className="text-gray-300">Male Deaths:</span>
+              <span className="text-red-300 font-semibold">{selectedYear.Male.toFixed(2)}%</span>
+            </div>
+            <div className="flex justify-between items-center">
+              <span className="text-gray-300">Total:</span>
+              <span className="text-white font-semibold">{selectedYear.Total}%</span>
+            </div>
+          </div>
+        ) : (
+          <div className="flex flex-col items-center justify-center h-[200px] text-center">
+            <div className="w-16 h-16 rounded-full border-2 border-gray-700 flex items-center justify-center mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <p className="text-gray-400">Click a bar in the chart to view detailed information for that year.</p>
+          </div>
+        )}
+      </div>
+    </div>
   );
 }
 
@@ -672,22 +746,46 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-      <section>
+      <section className="min-h-screen bg-gray-950 text-white relative py-20 px-4">
+        {/* Background effects */}
         <motion.div
-          className="bg-gray-900 text-white py-10 px-4"
-          initial={{ opacity: 0, y: 0 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          className="absolute inset-0 z-0"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1.5 }}
           viewport={{ once: true }}
         >
-          <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-16"
-            initial={{ opacity: 0, y: -20 }}
+          <div className="absolute inset-0 bg-gradient-to-b from-gray-950 via-black to-gray-900"></div>
+          <div className="absolute top-1/3 right-1/4 w-1/2 h-1/2 rounded-full bg-red-800/10 blur-[150px]"></div>
+          <div className="absolute bottom-1/3 left-1/3 w-1/3 h-1/3 rounded-full bg-red-900/15 blur-[120px]"></div>
+        </motion.div>
+
+        <div className="max-w-6xl mx-auto relative z-10">
+          {/* Section header */}
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            The <span className="text-red-600">Data</span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+              The <span className="text-red-600">Data</span> Behind the Crisis
+            </h2>
+            <p className="text-gray-300 max-w-2xl mx-auto text-base sm:text-lg italic">
+              Understanding the statistics helps us target our efforts where they're needed most
+            </p>
+          </motion.div>
+
+          {/* Chart Component */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <OpioidOverdoseChart />
+          </motion.div>
             <motion.p
               className="text-3xl font-bold pt-8 text-center pb-8"
               initial={{ opacity: 0, y: -20 }}
@@ -706,8 +804,6 @@ export default function Home() {
             >
               In this time, nearly <span className="font-bold text-red-600">every</span> recorded county has seen an increase in drug related deaths
             </motion.p>
-          </motion.h2>
-
           <motion.div
             className="flex flex-col lg:flex-row-reverse py-16 gap-32 lg:items-center lg:justify-center"
             initial={{ opacity: 0 }}
@@ -804,7 +900,7 @@ export default function Home() {
               </motion.div>
             </motion.div>
           </motion.div>
-        </motion.div>
+        </div>
         <motion.div
           className="bg-gray-900 text-white py-10 px-4"
           initial={{ opacity: 0, y: 50 }}
@@ -855,7 +951,7 @@ export default function Home() {
             were caused by <span className="font-bold text-red-600">opioids</span>.
           </motion.p>
         </motion.div>
-      </section>
+        </section>
     </div>
   );
 }
