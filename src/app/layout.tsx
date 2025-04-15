@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "The Opioid Epidemic",
-  description: "Raising awareness about Washingtons's opioid epidemic - understanding the data that matters in the fight against our deadliest drug crisis.",
+  description: "Raising awareness about Washington's opioid epidemic - understanding the data that matters in the fight against our deadliest drug crisis.",
 };
 
 export default function RootLayout({
