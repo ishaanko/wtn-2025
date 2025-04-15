@@ -162,7 +162,7 @@ export default function Home() {
 
         </div>
       </section>
-      <section className="min-h-sccreen bg-gray-900 text-white relative py-20 px-4">
+      <section className="min-h-screen bg-gray-900 text-white relative py-20 px-4">
         <motion.div
           className="absolute inset-0 z-0"
           initial={{ opacity: 0 }}
@@ -210,7 +210,7 @@ export default function Home() {
               <div className="p-6">
                 <h3 className="text-xl sm:text-2xl font-bold mb-2">The Human Cost of Opioids</h3>
                 <p className="text-gray-300 text-sm sm:text-base">
-                  A raw glimpse into how opioid addiction destroys lives and tears families aprt,
+                  A raw glimpse into how opioid addiction destroys lives and tears families apart,
                   revealing the true human cost behind Washington&apos;s deadliest drug crisis.
                 </p>
               </div>
@@ -240,6 +240,228 @@ export default function Home() {
               </div>
             </motion.div>
           </div>
+        </div>
+      </section>
+      <section className="min-h-screen bg-black text-white relative py-20 px-4">
+        <motion.div
+          className="absolute inset-0 z-0"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1.5 }}
+          viewport={{ once: true }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-black via-black to-gray-900"></div>
+          <div className="absolute top-1/3 left-1/4 w-1/2 h-1/2 rounded-full bg-red-800/10 blur-[150px]"></div>
+          <div className="absolute bottom-1/4 right-1/3 w-1/3 h-1/3 rounded-full bg-red-900/10 blur-[120px]"></div>
+        </motion.div>
+
+        <div className="max-w-6xl mx-auto relative z-10">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+              Families at <span className="text-red-600">Risk</span>
+            </h2>
+            <p className="text-gray-300 max-w-2xl mx-auto text-base sm:text-lg italic">
+              Parents and teens both face unique challenges in the opioid crisis
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-16">
+            <motion.div
+              className="bg-black/30 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 p-6"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-2xl sm:text-3xl font-bold mb-4 text-red-500">For Parents</h3>
+              <p className="text-gray-300 text-sm sm:text-base mb-4 leading-relaxed">
+                Parents struggling with opioid use may face shame, fear, or lack of access to support, but getting
+                help is possible and recovery is real.
+              </p>
+              <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
+                At the same time, parents should be aware of their children&apos;s risk of exposure to opioids, even
+                if it&apos;s unintentional. Safe storage and open conversations save lives.
+              </p>
+            </motion.div>
+
+            <motion.div
+              className="bg-black/30 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 p-6"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-2xl sm:text-3xl font-bold mb-4 text-red-500">For Teens</h3>
+              <p className="text-gray-300 text-sm sm:text-base mb-4 leading-relaxed">
+                Teens today face immense stress, anxiety and pressure. Some turn to opioids to cope, whether to
+                relieve pain or escape unwanted emotions.
+              </p>
+              <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
+                But what seems like a quick fix can turn deadly fast. One laced pill can be fatal. We want you to
+                have the knowledge and tools to protect yourself and your friends.
+              </p>
+            </motion.div>
+          </div>
+
+          <motion.div
+            className="text-center my-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h3 className="text-2xl sm:text-3xl font-bold mb-6">
+              What are the <span className="text-red-600">signs?</span>
+            </h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+              <div className="bg-black/30 backdrop-blur-sm rounded-lg p-4 border border-gray-800">
+                <p className="text-gray-300">Physical changes</p>
+              </div>
+              <div className="bg-black/30 backdrop-blur-sm rounded-lg p-4 border border-gray-800">
+                <p className="text-gray-300">Mood swings</p>
+              </div>
+              <div className="bg-black/30 backdrop-blur-sm rounded-lg p-4 border border-gray-800">
+                <p className="text-gray-300">Secretive behavior</p>
+              </div>
+              <div className="bg-black/30 backdrop-blur-sm rounded-lg p-4 border border-gray-800">
+                <p className="text-gray-300">Sleep changes</p>
+              </div>
+              <div className="bg-black/30 backdrop-blur-sm rounded-lg p-4 border border-gray-800">
+                <p className="text-gray-300">Financial issues</p>
+              </div>
+              <div className="bg-black/30 backdrop-blur-sm rounded-lg p-4 border border-gray-800">
+                <p className="text-gray-300">School/work problems</p>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="my-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 text-center">
+              <span className="text-red-600">TAKE ACTION!</span>
+            </h3>
+            <p className="text-center text-gray-300 mb-10 max-w-3xl mx-auto">
+              What you can do to be one step closer to solving the opioid crisis in Washington
+            </p>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <motion.div
+                className="bg-black/30 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 p-6"
+                whileHover={{ y: -5, transition: { duration: 0.2 } }}
+              >
+                <h4 className="text-lg sm:text-xl font-bold mb-2">Talk early and often</h4>
+                <p className="text-gray-300 text-sm sm:text-base">
+                  Have open and judgment-free conversations about drug usage
+                </p>
+              </motion.div>
+
+              <motion.div
+                className="bg-black/30 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 p-6"
+                whileHover={{ y: -5, transition: { duration: 0.2 } }}
+              >
+                <h4 className="text-lg sm:text-xl font-bold mb-2">Lock up medications</h4>
+                <p className="text-gray-300 text-sm sm:text-base">
+                  Keep prescription medications secure and out of reach
+                </p>
+              </motion.div>
+
+              <motion.div
+                className="bg-black/30 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 p-6"
+                whileHover={{ y: -5, transition: { duration: 0.2 } }}
+              >
+                <h4 className="text-lg sm:text-xl font-bold mb-2">Dispose safely</h4>
+                <p className="text-gray-300 text-sm sm:text-base">
+                  Use medication drop boxes or disposal pouches
+                </p>
+              </motion.div>
+
+              <motion.div
+                className="bg-black/30 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 p-6"
+                whileHover={{ y: -5, transition: { duration: 0.2 } }}
+              >
+                <h4 className="text-lg sm:text-xl font-bold mb-2">Know the signs</h4>
+                <p className="text-gray-300 text-sm sm:text-base">
+                  Changes in mood, sleep or appearance can signal misuse
+                </p>
+              </motion.div>
+
+              <motion.div
+                className="bg-black/30 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 p-6"
+                whileHover={{ y: -5, transition: { duration: 0.2 } }}
+              >
+                <h4 className="text-lg sm:text-xl font-bold mb-2">Carry naloxone</h4>
+                <p className="text-gray-300 text-sm sm:text-base">
+                  This is LIFE-SAVING medication that reverses overdoses
+                </p>
+              </motion.div>
+
+              <motion.div
+                className="bg-black/30 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 p-6"
+                whileHover={{ y: -5, transition: { duration: 0.2 } }}
+              >
+                <h4 className="text-lg sm:text-xl font-bold mb-2">Seek Help</h4>
+                <p className="text-gray-300 text-sm sm:text-base">
+                  Resources exist to help both youth and adults
+                </p>
+              </motion.div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="text-center py-12"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+          >
+            <motion.div
+              className="overflow-hidden"
+              initial={{ opacity: 1 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+            >
+              <motion.div
+                initial={{ y: 0 }}
+                whileInView={{
+                  y: 0,
+                  transition: {
+                    staggerChildren: 0.1,
+                  },
+                }}
+                viewport={{ once: true }}
+                className="flex flex-wrap justify-center"
+              >
+                {["Save.", "A.", "Life.", "Today."].map((word, i) => (
+                  <motion.span
+                    key={i}
+                    className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mx-2 my-1 inline-block"
+                    initial={{ y: 100, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    transition={{
+                      duration: 0.5,
+                      ease: [0.6, 0.05, -0.01, 0.9],
+                    }}
+                    viewport={{ once: true }}
+                  >
+                    <span className={i % 2 === 0 ? "text-red-500" : "text-white"}>
+                      {word}
+                    </span>
+                  </motion.span>
+                ))}
+              </motion.div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
     </div>
