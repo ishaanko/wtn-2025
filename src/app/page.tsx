@@ -1,9 +1,8 @@
 "use client";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, useGLTF } from "@react-three/drei";
+import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
@@ -28,7 +27,7 @@ function PillyModel() {
     };
   }, []);
 
-  useFrame((state, delta) => {
+  useFrame((_state, delta) => {
     if (modelRef.current) {
       modelRef.current.rotation.z += 0.003 * delta * 60; // Rotate on y-axis based on frame time
     }
@@ -63,7 +62,7 @@ function Pilly2Model() {
     };
   }, []);
 
-  useFrame((state, delta) => {
+  useFrame((_state, delta) => {
     if (modelRef.current) {
       const scrollY = window.scrollY || 0;
       modelRef.current.rotation.x = scrollY * 0.0015 + 0.2;
@@ -87,8 +86,6 @@ function Pilly2Model() {
 }
 
 export default function Home() {
-  const [isHovered, setIsHovered] = useState(false);
-
   const scrollToNextSection = () => {
     window.scrollBy({
       top: window.innerHeight,
