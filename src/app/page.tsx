@@ -87,7 +87,7 @@ function Pilly2Model() {
 
 // Add this chart component
 function OpioidOverdoseChart() {
-  const [selectedYear, setSelectedYear] = useState(null);
+  const [selectedYear, setSelectedYear] = useState<ChartData | null>(null);
   const chartData = [
     { Year: 2019, Female: 35.75, Male: 64.25, Total: 100.0 },
     { Year: 2020, Female: 26.2, Male: 73.8, Total: 100.0 },
@@ -96,7 +96,14 @@ function OpioidOverdoseChart() {
     { Year: 2023, Female: 24.06, Male: 75.94, Total: 100.0 },
   ];
 
-  const handleBarClick = (data) => {
+  interface ChartData {
+    Year: number;
+    Female: number;
+    Male: number;
+    Total: number;
+  }
+
+  const handleBarClick = (data: ChartData) => {
     setSelectedYear(data);
   };
 
@@ -111,7 +118,7 @@ function OpioidOverdoseChart() {
             <XAxis dataKey="Year" stroke="#888" />
             <YAxis unit="%" stroke="#888" />
             <Tooltip
-              formatter={(value) => `${value.toFixed(2)}%`}
+              formatter={(value) => (typeof value === 'number' ? `${value.toFixed(2)}%` : value)}
               contentStyle={{ backgroundColor: 'rgba(0, 0, 0, 0.8)', border: '1px solid #333' }}
               labelStyle={{ color: '#fff' }}
             />
