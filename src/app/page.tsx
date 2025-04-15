@@ -29,7 +29,7 @@ function PillyModel() {
 
   useFrame((_state, delta) => {
     if (modelRef.current) {
-      modelRef.current.rotation.z += 0.003 * delta * 60; // Rotate on y-axis based on frame time
+      modelRef.current.rotation.z += 0.003 * delta * 60;
     }
   });
 
@@ -66,10 +66,8 @@ function Pilly2Model() {
     if (modelRef.current) {
       const scrollY = window.scrollY || 0;
       modelRef.current.rotation.x = scrollY * 0.0015 + 0.2;
-      modelRef.current.rotation.y += 0.003 * delta * 60; // Rotate on y-axis based on frame time
-      modelRef.current.position.y = -scrollY * 0.01; // Adjust position based on scroll
-
-      // Apply random shaking effect
+      modelRef.current.rotation.y += 0.003 * delta * 60;
+      modelRef.current.position.y = -scrollY * 0.01;
       modelRef.current.position.x = (Math.random() - 0.5) * 0.04;
       modelRef.current.position.z = (Math.random() - 0.5) * 0.04;
     }
@@ -253,9 +251,9 @@ export default function Home() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold pb-8">Overdose Trends</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold pb-8"><span className="text-red-600">Overdose</span> Trends</h2>
           <p>
-        According to Washington Tracking Network, all SURDORS (State Unintentional Drug Overdose Reporting System) counties of any opioid-related overdose deaths have increased approximately 250% from 2020 to 2023. With there over 2,000 Washingtonians dying from opioids every year, many due to fentanyl. Both urban and rural areas are affected, with some counties in Washington seeing overdose rates way above the state average.
+        According to Washington Tracking Network, all SURDORS (State Unintentional Drug Overdose Reporting System) counties of any opioid-related overdose deaths have increased approximately <span className="font-bold">250% from 2020 to 2023.</span> With there over <span className="font-bold">2,000 Washingtonians</span> dying from opioids every year, many due to fentanyl. Both urban and rural areas are affected, with some counties in Washington seeing overdose rates way above the state average.
           </p>
         </motion.div>
         <motion.div
