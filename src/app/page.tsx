@@ -6,7 +6,8 @@ import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
-
+import Washington from "@/components/Washington";
+import deathData from "@/components/death_data.json";
 function PillyModel() {
   const { scene } = useGLTF("/pilly.glb");
   const modelRef = useRef<THREE.Object3D>(null);
@@ -88,10 +89,25 @@ export default function Home() {
     window.scrollBy({
       top: window.innerHeight,
       behavior: 'smooth'
-    }); 
+    });
   };
 
   const [glitchActive, setGlitchActive] = useState(false);
+  const [animationKey, setAnimationKey] = useState(0);
+  const [countyData, setCountyData] = useState({
+    name: "King",
+    stats2020: {
+      population: "2,269,673",
+      crudeDeathRate: "21.24",
+      relativeDeathRate: "19.86",
+    },
+    stats2023: {
+      population: "2,347,800",
+      crudeDeathRate: "50.77",
+      relativeDeathRate: "46.07",
+    },
+    relativeChange: "+131.97%",
+  });
 
   useEffect(() => {
     const glitchInterval = setInterval(() => {
@@ -101,6 +117,81 @@ export default function Home() {
 
     return () => clearInterval(glitchInterval);
   }, []);
+
+  function changeData(pathId: keyof typeof deathData): void {
+      const data = deathData[pathId];
+
+    if (data) {
+      const stats2020 = data["2020"];
+      const stats2023 = data["2023"];
+      const relativeChange = (
+        ((stats2023["Adjusted Death Rate"] - stats2020["Adjusted Death Rate"]) /
+          stats2020["Adjusted Death Rate"]) *
+        100
+      ).toFixed(2);
+
+      // Update state with new data
+      setCountyData({
+        name: pathId,
+        stats2020: {
+          population: stats2020["Population"].toLocaleString(),
+          crudeDeathRate: stats2020["Crude Death Rate"].toString(),
+          relativeDeathRate: stats2020["Adjusted Death Rate"].toString(),
+        },
+        stats2023: {
+          population: stats2023["Population"].toLocaleString(),
+          crudeDeathRate: stats2023["Crude Death Rate"].toString(),
+          relativeDeathRate: stats2023["Adjusted Death Rate"].toString(),
+        },
+        relativeChange: `${Number(relativeChange) > 0 ? "+" : ""}${relativeChange}%`,
+      });
+
+      // Trigger animation replay
+      setAnimationKey((prevKey) => prevKey + 1);
+    } else {
+      // Handle case where no data is available
+      setCountyData({
+        name: "No data",
+        stats2020: {
+          population: "No data",
+          crudeDeathRate: "No data",
+          relativeDeathRate: "No data",
+        },
+        stats2023: {
+          population: "No data",
+          crudeDeathRate: "No data",
+          relativeDeathRate: "No data",
+        },
+        relativeChange: "No data",
+      });
+
+      setAnimationKey((prevKey) => prevKey + 1);
+    }
+  }
+
+  const [svgPaths, setSvgPaths] = useState<{ path: HTMLElement | null; relativeChange: number }[]>([]);
+
+  useEffect(() => {
+    const paths = Object.keys(deathData).map(county => {
+      const path = document.getElementById(county);
+      const stats2020 = deathData[county as keyof typeof deathData]["2020"];
+      const stats2023 = deathData[county as keyof typeof deathData]["2023"];
+      const relativeChange = ((stats2023["Adjusted Death Rate"] - stats2020["Adjusted Death Rate"]) / stats2020["Adjusted Death Rate"]) * 100;
+      return { path, relativeChange };
+    });
+    setSvgPaths(paths);
+  }, []);
+
+  useEffect(() => {
+    svgPaths.forEach(({ path, relativeChange }) => {
+      if (path) {
+        const color = relativeChange < 0
+          ? `rgba(125, 125, 255, ${Math.abs(relativeChange) / 50})` // Green for negative change
+          : `rgba(255,40,40, ${Math.abs(relativeChange) / 200})`; // Red for positive change
+        path.setAttribute('fill', color);
+      }
+    });
+  }, [svgPaths]);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-black to-gray-900 text-white">
@@ -172,6 +263,13 @@ export default function Home() {
                 Washington Crisis Alert
               </h3>
             </motion.div>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              By: Inesh Dey, Iris Dey, and Ishaan Kothari
+            </motion.p>
 
             <motion.h1
               className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mx-auto ${glitchActive ? 'glitch' : ''}`}
@@ -234,12 +332,12 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5, ease: "easeInOut" }}
         >
-            <Canvas className="">
+          <Canvas className="">
             <ambientLight intensity={2} color="#ff2200" />
             <directionalLight position={[5, 5, 5]} intensity={3} color="blue" />
             <Pilly2Model />
             {/* <OrbitControls enableZoom={false} /> */}
-            </Canvas>
+          </Canvas>
         </motion.div>
       </section>
 
@@ -253,7 +351,7 @@ export default function Home() {
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold pb-8"><span className="text-red-600">Overdose</span> Trends</h2>
           <p>
-        According to Washington Tracking Network, all SURDORS (State Unintentional Drug Overdose Reporting System) counties of any opioid-related overdose deaths have increased approximately <span className="font-bold">250% from 2020 to 2023.</span> With there over <span className="font-bold">2,000 Washingtonians</span> dying from opioids every year, many due to fentanyl. Both urban and rural areas are affected, with some counties in Washington seeing overdose rates way above the state average.
+            According to Washington Tracking Network, all SURDORS (State Unintentional Drug Overdose Reporting System) counties of any opioid-related overdose deaths have increased approximately <span className="font-bold">250% from 2020 to 2023.</span> With there over <span className="font-bold">2,000 Washingtonians</span> dying from opioids every year, many due to fentanyl. Both urban and rural areas are affected, with some counties in Washington seeing overdose rates way above the state average.
           </p>
         </motion.div>
         <motion.div
@@ -264,15 +362,15 @@ export default function Home() {
           viewport={{ once: true }}
         >
           <Canvas className="h-full w-full">
-        <ambientLight intensity={2} />
-        <directionalLight position={[5, 5, 5]} intensity={3} />
-        <PillyModel />
-        {/* <OrbitControls enableZoom={false} /> */}
+            <ambientLight intensity={2} />
+            <directionalLight position={[5, 5, 5]} intensity={3} />
+            <PillyModel />
+            {/* <OrbitControls enableZoom={false} /> */}
           </Canvas>
         </motion.div>
       </section>
 
-      <section className="min-h-screen bg-gray-900 text-white relative py-20 px-4">
+      <section className="py-16 bg-gray-900 text-white relative py-20 px-4">
         <motion.div
           className="absolute inset-0 z-0 opacity-0"
           initial={{ opacity: 1 }}
@@ -574,11 +672,193 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+      <section>
+        <motion.div
+          className="bg-gray-900 text-white py-10 px-4"
+          initial={{ opacity: 0, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-16"
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            The <span className="text-red-600">Data</span>
+            <motion.p
+              className="text-3xl font-bold pt-8 text-center pb-8"
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              Per county deaths from 2020 to 2023
+            </motion.p>
+            <motion.p
+              className="text-2xl font-normal"
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
+              In this time, nearly <span className="font-bold text-red-600">every</span> recorded county has seen an increase in drug related deaths
+            </motion.p>
+          </motion.h2>
+
+          <motion.div
+            className="flex flex-col lg:flex-row-reverse py-16 gap-32 lg:items-center lg:justify-center"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <motion.div
+              className="w-full lg:w-1/2 px-16"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <Washington onPathClick={(pathId) => changeData(pathId as keyof typeof deathData)} />
+              <motion.p
+                className="text-center font-bold text-xl pt-8"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                Click on a county to see its data.
+              </motion.p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="max-lg:text-center lg:w-1/4"
+            >
+              <motion.h3
+                key={animationKey} // Add this key to re-trigger animation
+                className="text-5xl font-bold py-8"
+                initial={{ opacity: 0, y: -20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+              >
+                <span className="county-name">{countyData.name}</span>
+                <p className="font-normal text-4xl">County</p>
+              </motion.h3>
+              <motion.p
+                className="text-3xl font-bold"
+                initial={{ opacity: 0, y: -20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                2020
+              </motion.p>
+              <motion.div
+                className="text-xl pb-4 stats-2020"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                viewport={{ once: true }}
+              >
+                <p>Population: <span className="font-light">{countyData.stats2020.population}</span></p>
+                <p>Crude Death Rate: <span className="font-light">{countyData.stats2020.crudeDeathRate}</span></p>
+                <p>Relative Death Rate: <span className="font-light">{countyData.stats2020.relativeDeathRate}</span></p>
+              </motion.div>
+              <motion.p
+                className="text-3xl font-bold"
+                initial={{ opacity: 0, y: -20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                viewport={{ once: true }}
+              >
+                2023
+              </motion.p>
+              <motion.div
+                className="text-xl stats-2023"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.8 }}
+                viewport={{ once: true }}
+              >
+                <p>Population: <span className="font-light">{countyData.stats2023.population}</span></p>
+                <p>Crude Death Rate: <span className="font-light">{countyData.stats2023.crudeDeathRate}</span></p>
+                <p>Relative Death Rate: <span className="font-light">{countyData.stats2023.relativeDeathRate}</span></p>
+              </motion.div>
+              <motion.div
+                className="text-xl"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 1 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-3xl pt-4">Change in <span className="font-bold">Statistics</span></h3>
+                Relative Death Rate Changed by <motion.p key={animationKey + 3} initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }} className="text-5xl font-bold relative-change text-red-600">{countyData.relativeChange}</motion.p> from 2020 to 2023.
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        </motion.div>
+        <motion.div
+          className="bg-gray-900 text-white py-10 px-4"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <motion.h3
+            className="text-5xl font-semibold text-center pb-8"
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            And in 2023...
+          </motion.h3>
+          <motion.div
+            className="flex justify-center items-center py-8"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            <img
+              src={"./opioidgraph.svg"}
+              alt="Opioid Graph"
+              className="w-[50%] h-auto max-w-md"
+            />
+            <motion.p
+              className="absolute text-8xl font-bold"
+              initial={{ opacity: 0, scale: 0.5 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              viewport={{ once: true }}
+            >
+              81%
+            </motion.p>
+          </motion.div>
+          <motion.p
+            className="px-24 text-center text-xl font-light italic text-gray-300"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <span className="font-bold text-red-600">2819</span> out of{" "}
+            <span className="font-bold text-red-600">3458</span> drug deaths
+            were caused by <span className="font-bold text-red-600">opioids</span>.
+          </motion.p>
+        </motion.div>
+      </section>
     </div>
   );
 }
 
 useGLTF.preload('/pilly.glb');
 useGLTF.preload('/pilly2.glb');
-// Ensure to install the required dependencies:
-// npm install @react-three/fiber @react-three/drei three

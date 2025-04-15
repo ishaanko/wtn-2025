@@ -364,3 +364,35 @@ body {
     transform: skew(0deg);
   }
 }
+
+#Washington path {
+  transition: stroke-width 0.8s ease;
+  transition: fill 0.8s ease;
+  filter: drop-shadow(0 0 2px red);
+  z-index: 0;
+  position: absolute;
+}
+.blackHeader {
+  text-shadow: 1px 3px 30px red;
+}
+#Washington path:hover {
+  stroke-width: 5;
+  stroke: red;
+  position: relative;
+  z-index: 1000 !important;
+  cursor: pointer;
+  fill: white;
+  z-index: 1000 !important;
+
+}
+
+#Washington path:focus {
+  stroke-width: 5;
+  stroke: black;
+  position: relative;
+  z-index: 1000 !important;
+  cursor: pointer;
+  fill: white;
+  z-index: 1000 !important;
+
+}
