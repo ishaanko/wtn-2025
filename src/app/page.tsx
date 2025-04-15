@@ -793,7 +793,7 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              Per county deaths from 2020 to 2023
+              Per county drug deaths from 2020 to 2023
             </motion.p>
             <motion.p
               className="text-2xl font-normal text-center"
