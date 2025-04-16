@@ -31,7 +31,7 @@ function PillyModel() {
 
   useFrame((_state, delta) => {
     if (modelRef.current) {
-      modelRef.current.rotation.z += 0.003 * delta * 60;
+      modelRef.current.rotation.z += 0.007 * delta * 60;
     }
   });
 
@@ -418,7 +418,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      <section className="h-[80vh] flex lg:flex-row flex-col bg-gray-950 relative p-32">
+      <section className="min-h-[80vh] flex lg:flex-row flex-col bg-gray-950 relative lg:p-32 p-16">
         <motion.div
           className="flex flex-col justify-center items-start w-full lg:w-1/2 h-full lg:px-24"
           initial={{ opacity: 0, x: -50 }}
