@@ -1,0 +1,352 @@
+{
+  "Benton": {
+    "2020": {
+      "Death Count": 48,
+      "Population": 206873,
+      "Crude Death Rate": 23.2,
+      "Adjusted Death Rate": 24.07
+    },
+    "2023": {
+      "Death Count": 61,
+      "Population": 215500,
+      "Crude Death Rate": 28.31,
+      "Adjusted Death Rate": 29.6
+    }
+  },
+  "Benton-Franklin": {
+    "2020": {
+      "Death Count": 64,
+      "Population": 303579,
+      "Crude Death Rate": 21.08,
+      "Adjusted Death Rate": 22.06
+    },
+    "2023": {
+      "Death Count": 81,
+      "Population": 316600,
+      "Crude Death Rate": 25.58,
+      "Adjusted Death Rate": 26.82
+    }
+  },
+  "Chelan": {
+    "2020": {
+      "Death Count": 10,
+      "Population": 79141,
+      "Crude Death Rate": 12.64,
+      "Adjusted Death Rate": 12.12
+    },
+    "2023": {
+      "Death Count": 24,
+      "Population": 81500,
+      "Crude Death Rate": 29.45,
+      "Adjusted Death Rate": 29.6
+    }
+  },
+  "Chelan-Douglas": {
+    "2020": {
+      "Death Count": 10,
+      "Population": 122079,
+      "Crude Death Rate": 8.19,
+      "Adjusted Death Rate": 7.84
+    },
+    "2023": {
+      "Death Count": 32,
+      "Population": 126000,
+      "Crude Death Rate": 25.4,
+      "Adjusted Death Rate": 26.61
+    }
+  },
+  "Clallam": {
+    "2020": {
+      "Death Count": 21,
+      "Population": 77155,
+      "Crude Death Rate": 27.22,
+      "Adjusted Death Rate": 31.84
+    },
+    "2023": {
+      "Death Count": 55,
+      "Population": 78075,
+      "Crude Death Rate": 70.45,
+      "Adjusted Death Rate": 76.36
+    }
+  },
+  "Clark": {
+    "2020": {
+      "Death Count": 111,
+      "Population": 503311,
+      "Crude Death Rate": 22.05,
+      "Adjusted Death Rate": 22.57
+    },
+    "2023": {
+      "Death Count": 162,
+      "Population": 527400,
+      "Crude Death Rate": 30.72,
+      "Adjusted Death Rate": 29.5
+    }
+  },
+  "Cowlitz": {
+    "2020": {
+      "Death Count": 29,
+      "Population": 110730,
+      "Crude Death Rate": 26.19,
+      "Adjusted Death Rate": 24.42
+    },
+    "2023": {
+      "Death Count": 50,
+      "Population": 113000,
+      "Crude Death Rate": 44.25,
+      "Adjusted Death Rate": 45.01
+    }
+  },
+  "Franklin": {
+    "2020": {
+      "Death Count": 16,
+      "Population": 96706,
+      "Crude Death Rate": 16.55,
+      "Adjusted Death Rate": 18.0
+    },
+    "2023": {
+      "Death Count": 20,
+      "Population": 101100,
+      "Crude Death Rate": 19.78,
+      "Adjusted Death Rate": 21.4
+    }
+  },
+  "Grant": {
+    "2020": {
+      "Death Count": 17,
+      "Population": 99123,
+      "Crude Death Rate": 17.15,
+      "Adjusted Death Rate": 18.54
+    },
+    "2023": {
+      "Death Count": 36,
+      "Population": 103300,
+      "Crude Death Rate": 34.85,
+      "Adjusted Death Rate": 36.22
+    }
+  },
+  "Grays Harbor": {
+    "2020": {
+      "Death Count": 21,
+      "Population": 75636,
+      "Crude Death Rate": 27.76,
+      "Adjusted Death Rate": 26.44
+    },
+    "2023": {
+      "Death Count": 76,
+      "Population": 77000,
+      "Crude Death Rate": 98.7,
+      "Adjusted Death Rate": 94.05
+    }
+  },
+  "Island": {
+    "2020": {
+      "Death Count": 16,
+      "Population": 86857,
+      "Crude Death Rate": 18.42,
+      "Adjusted Death Rate": 19.71
+    },
+    "2023": {
+      "Death Count": 24,
+      "Population": 88150,
+      "Crude Death Rate": 27.23,
+      "Adjusted Death Rate": 27.43
+    }
+  },
+  "King": {
+    "2020": {
+      "Death Count": 482,
+      "Population": 2269673,
+      "Crude Death Rate": 21.24,
+      "Adjusted Death Rate": 19.86
+    },
+    "2023": {
+      "Death Count": 1192,
+      "Population": 2347800,
+      "Crude Death Rate": 50.77,
+      "Adjusted Death Rate": 46.07
+    }
+  },
+  "Kitsap": {
+    "2020": {
+      "Death Count": 43,
+      "Population": 275611,
+      "Crude Death Rate": 15.6,
+      "Adjusted Death Rate": 15.83
+    },
+    "2023": {
+      "Death Count": 90,
+      "Population": 283200,
+      "Crude Death Rate": 31.78,
+      "Adjusted Death Rate": 32.66
+    }
+  },
+  "Lewis": {
+    "2020": {
+      "Death Count": 27,
+      "Population": 82149,
+      "Crude Death Rate": 32.87,
+      "Adjusted Death Rate": 34.76
+    },
+    "2023": {
+      "Death Count": 46,
+      "Population": 84075,
+      "Crude Death Rate": 54.71,
+      "Adjusted Death Rate": 57.94
+    }
+  },
+  "Mason": {
+    "2020": {
+      "Death Count": 23,
+      "Population": 65726,
+      "Crude Death Rate": 34.99,
+      "Adjusted Death Rate": 34.9
+    },
+    "2023": {
+      "Death Count": 37,
+      "Population": 67000,
+      "Crude Death Rate": 55.22,
+      "Adjusted Death Rate": 56.35
+    }
+  },
+  "Northeast Tri": {
+    "2020": {
+      "Death Count": 12,
+      "Population": 67024,
+      "Crude Death Rate": 17.9,
+      "Adjusted Death Rate": 18.13
+    },
+    "2023": {
+      "Death Count": 29,
+      "Population": 68375,
+      "Crude Death Rate": 42.41,
+      "Adjusted Death Rate": 54.15
+    }
+  },
+  "Okanogan": {
+    "2020": {
+      "Death Count": 11,
+      "Population": 42104,
+      "Crude Death Rate": 26.13,
+      "Adjusted Death Rate": 26.4
+    },
+    "2023": {
+      "Death Count": 21,
+      "Population": 43000,
+      "Crude Death Rate": 48.84,
+      "Adjusted Death Rate": 58.9
+    }
+  },
+  "Pierce": {
+    "2020": {
+      "Death Count": 255,
+      "Population": 920371,
+      "Crude Death Rate": 27.71,
+      "Adjusted Death Rate": 26.99
+    },
+    "2023": {
+      "Death Count": 483,
+      "Population": 946300,
+      "Crude Death Rate": 51.04,
+      "Adjusted Death Rate": 49.57
+    }
+  },
+  "Skagit": {
+    "2020": {
+      "Death Count": 41,
+      "Population": 129523,
+      "Crude Death Rate": 31.65,
+      "Adjusted Death Rate": 32.59
+    },
+    "2023": {
+      "Death Count": 56,
+      "Population": 132000,
+      "Crude Death Rate": 42.42,
+      "Adjusted Death Rate": 46.86
+    }
+  },
+  "Snohomish": {
+    "2020": {
+      "Death Count": 233,
+      "Population": 827957,
+      "Crude Death Rate": 28.14,
+      "Adjusted Death Rate": 26.97
+    },
+    "2023": {
+      "Death Count": 323,
+      "Population": 859800,
+      "Crude Death Rate": 37.57,
+      "Adjusted Death Rate": 35.51
+    }
+  },
+  "Spokane": {
+    "2020": {
+      "Death Count": 103,
+      "Population": 539307,
+      "Crude Death Rate": 19.1,
+      "Adjusted Death Rate": 19.61
+    },
+    "2023": {
+      "Death Count": 236,
+      "Population": 554600,
+      "Crude Death Rate": 42.55,
+      "Adjusted Death Rate": 42.72
+    }
+  },
+  "Thurston": {
+    "2020": {
+      "Death Count": 50,
+      "Population": 294788,
+      "Crude Death Rate": 16.96,
+      "Adjusted Death Rate": 16.87
+    },
+    "2023": {
+      "Death Count": 122,
+      "Population": 303400,
+      "Crude Death Rate": 40.21,
+      "Adjusted Death Rate": 39.63
+    }
+  },
+  "Walla Walla": {
+    "2020": {
+      "Death Count": 13,
+      "Population": 62510,
+      "Crude Death Rate": 20.8,
+      "Adjusted Death Rate": 22.01
+    },
+    "2023": {
+      "Death Count": 12,
+      "Population": 63100,
+      "Crude Death Rate": 19.02,
+      "Adjusted Death Rate": 18.83
+    }
+  },
+  "Whatcom": {
+    "2020": {
+      "Death Count": 37,
+      "Population": 226847,
+      "Crude Death Rate": 16.31,
+      "Adjusted Death Rate": 17.68
+    },
+    "2023": {
+      "Death Count": 117,
+      "Population": 235800,
+      "Crude Death Rate": 49.62,
+      "Adjusted Death Rate": 51.24
+    }
+  },
+  "Yakima": {
+    "2020": {
+      "Death Count": 74,
+      "Population": 256728,
+      "Crude Death Rate": 28.82,
+      "Adjusted Death Rate": 31.07
+    },
+    "2023": {
+      "Death Count": 106,
+      "Population": 261200,
+      "Crude Death Rate": 40.58,
+      "Adjusted Death Rate": 43.86
+    }
+  }
+}
