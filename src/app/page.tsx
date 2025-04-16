@@ -418,9 +418,9 @@ export default function Home() {
         </motion.div>
       </section>
 
-      <section className="min-h-[80vh] flex lg:flex-row items-center flex-col bg-gray-950 relative lg:p-32 p-16">
+      <section className="min-h-[80vh] flex lg:flex-row items-center item flex-col bg-gray-950 relative lg:p-32 p-16 gap-16">
         <motion.div
-          className="flex flex-col justify-center items-start w-full lg:w-1/2 h-full lg:px-24"
+          className="flex flex-col justify-center items-start w-full lg:w-1/2 h-full lg:px-24 h-full"
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
@@ -432,10 +432,11 @@ export default function Home() {
           </p>
         </motion.div>
         <motion.div
-          className="lg:w-1/2 w-full"
+          className="lg:w-1/2 w-full h-full"
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
+          style={{ height: '450px' }}
           viewport={{ once: true }}
         >
           <Canvas className="h-full w-full">
