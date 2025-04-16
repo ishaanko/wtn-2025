@@ -85,7 +85,6 @@ function Pilly2Model() {
   );
 }
 
-// Add this chart component
 function OpioidOverdoseChart() {
   const [selectedYear, setSelectedYear] = useState<ChartData | null>(null);
   const chartData = [
@@ -211,7 +210,6 @@ export default function Home() {
         100
       ).toFixed(2);
 
-      // Update state with new data
       setCountyData({
         name: pathId,
         stats2020: {
@@ -227,10 +225,8 @@ export default function Home() {
         relativeChange: `${Number(relativeChange) > 0 ? "+" : ""}${relativeChange}%`,
       });
 
-      // Trigger animation replay
       setAnimationKey((prevKey) => prevKey + 1);
     } else {
-      // Handle case where no data is available
       setCountyData({
         name: "No data",
         stats2020: {
@@ -267,8 +263,8 @@ export default function Home() {
     svgPaths.forEach(({ path, relativeChange }) => {
       if (path) {
         const color = relativeChange < 0
-          ? `rgba(125, 125, 255, ${Math.abs(relativeChange) / 50})` // Green for negative change
-          : `rgba(255,40,40, ${Math.abs(relativeChange) / 200})`; // Red for positive change
+          ? `rgba(125, 125, 255, ${Math.abs(relativeChange) / 50})`
+          : `rgba(255,40,40, ${Math.abs(relativeChange) / 200})`;
         path.setAttribute('fill', color);
       }
     });
@@ -564,7 +560,6 @@ export default function Home() {
             </p>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {/* Improved button styling with flex layout for better vertical alignment */}
               <motion.div
                 className="bg-black/30 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 p-6 flex flex-col"
                 whileHover={{ y: -5, transition: { duration: 0.2 } }}
@@ -575,7 +570,6 @@ export default function Home() {
                 </p>
               </motion.div>
 
-              {/* Apply the same pattern to all other action buttons */}
               <motion.div
                 className="bg-black/30 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 p-6 flex flex-col"
                 whileHover={{ y: -5, transition: { duration: 0.2 } }}
@@ -688,7 +682,6 @@ export default function Home() {
         </motion.div>
 
         <div className="max-w-6xl mx-auto relative z-10">
-          {/* Fentanyl Section */}
           <motion.div
             className="mb-24"
             initial={{ opacity: 0 }}
@@ -740,7 +733,6 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* Regional Disparities */}
             <motion.div
               className="mb-24"
               initial={{ opacity: 0, y: 30 }}
@@ -804,7 +796,6 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* Demographics */}
             <motion.div
               className="mb-24"
               initial={{ opacity: 0, y: 30 }}
@@ -849,7 +840,6 @@ export default function Home() {
               </p>
             </motion.div>
 
-            {/* Polysubstance Use */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -903,7 +893,6 @@ export default function Home() {
         </div>
       </section>
       <section className="min-h-screen bg-gray-950 text-white relative py-20 px-4">
-        {/* Background effects */}
         <motion.div
           className="absolute inset-0 z-0"
           initial={{ opacity: 0 }}
@@ -917,7 +906,6 @@ export default function Home() {
         </motion.div>
 
         <div className="max-w-6xl mx-auto relative z-10">
-          {/* Section header */}
           <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 20 }}
@@ -933,7 +921,6 @@ export default function Home() {
             </p>
           </motion.div>
 
-          {/* Chart Component */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -993,7 +980,7 @@ export default function Home() {
               className="max-lg:text-center lg:w-1/3"
             >
               <motion.h3
-                key={animationKey} // Add this key to re-trigger animation
+                key={animationKey}
                 className="text-5xl font-bold py-8"
                 initial={{ opacity: 0, y: -20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -1223,11 +1210,69 @@ export default function Home() {
             transition={{ staggerChildren: 0.1, delayChildren: 0.3 }}
             viewport={{ once: true }}
           >
+            <motion.div
+              className="bg-red-900/30 backdrop-blur-sm rounded-xl overflow-hidden border border-red-800 p-6 flex flex-col h-full col-span-full"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -5, transition: { duration: 0.2 } }}
+            >
+              <h3 className="text-2xl font-bold mb-3 text-white">Emergency Resources</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                  <p className="text-white font-bold">Washington Poison Center</p>
+                  <a href="tel:18002221222" className="text-red-400 text-lg font-bold">1 (800) 222-1222</a>
+                  <p className="text-gray-400 text-sm mt-1">Available 24/7 for poisoning emergencies & overdoses</p>
+                </div>
+                <div>
+                  <p className="text-white font-bold">National Overdose Helpline</p>
+                  <a href="tel:18004841731" className="text-red-400 text-lg font-bold">1 (800) 484-1731</a>
+                  <p className="text-gray-400 text-sm mt-1">Immediate support during an overdose emergency</p>
+                </div>
+                <div>
+                  <p className="text-white font-bold">988 Suicide & Crisis Lifeline</p>
+                  <a href="tel:988" className="text-red-400 text-lg font-bold">988</a>
+                  <p className="text-gray-400 text-sm mt-1">24/7 support for anyone experiencing mental health distress</p>
+                </div>
+              </div>
+            </motion.div>
+
             {[
+              {
+                title: "SAMHSA National Helpline",
+                url: "https://www.samhsa.gov/find-help/helplines/national-helpline",
+                description: "1-800-662-HELP (4357) - 24/7 treatment referral and information service for substance use disorders"
+              },
+              {
+                title: "Washington Recovery Helpline",
+                url: "https://www.warecoveryhelpline.org/",
+                description: "24/7 helpline for substance use, problem gambling and mental health (1-866-789-1511)"
+              },
+              {
+                title: "Seattle ARP - Donate",
+                url: "https://seattlearp.salvationarmy.org/seattle_adult_rehabilitation_program/",
+                description: "Support recovery programs by donating to Salvation Army's Adult Rehabilitation Program"
+              },
+              {
+                title: "Naloxone Finder",
+                url: "https://stopoverdose.org/naloxone/",
+                description: "Where to get naloxone (Narcan) in Washington to prevent overdose deaths"
+              },
               {
                 title: "Washington Opioid Settlements",
                 url: "https://waportal.org/partners/washington-state-opioid-settlements",
                 description: "Learn about how settlement funds are being used to address the crisis"
+              },
+              {
+                title: "SAMHSA Treatment Locator",
+                url: "https://findtreatment.samhsa.gov/",
+                description: "Find substance use treatment facilities and programs in your area"
+              },
+              {
+                title: "Crisis Text Line",
+                url: "https://www.crisistextline.org/",
+                description: "Text HOME to 741741 for crisis support from trained counselors"
               },
               {
                 title: "National Institute on Drug Abuse",
@@ -1243,11 +1288,6 @@ export default function Home() {
                 title: "WA State Overdose Dashboard",
                 url: "https://doh.wa.gov/data-and-statistical-reports/washington-tracking-network-wtn/opioids/overdose-dashboard",
                 description: "Current data and statistics on overdoses in Washington State"
-              },
-              {
-                title: "Unintentional Drug Overdose Data",
-                url: "https://doh.wa.gov/data-and-statistical-reports/washington-tracking-network-wtn/opioids/unintentional-drug-overdose-data-sudors",
-                description: "SUDORS data on unintentional overdoses in Washington"
               }
             ].map((link, i) => (
               <motion.a
