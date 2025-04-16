@@ -1254,7 +1254,7 @@ export default function Home() {
               },
               {
                 title: "Naloxone Finder",
-                url: "https://stopoverdose.org/naloxone/",
+                url: "https://stopoverdose.org/find-naloxone-near-me-washington-state/",
                 description: "Where to get naloxone (Narcan) in Washington to prevent overdose deaths"
               },
               {
