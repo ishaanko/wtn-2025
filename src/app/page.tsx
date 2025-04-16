@@ -524,24 +524,22 @@ export default function Home() {
               What are the <span className="text-red-600">signs?</span>
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-              <div className="bg-black/30 backdrop-blur-sm rounded-lg p-4 border border-gray-800">
-                <p className="text-gray-300">Physical changes</p>
-              </div>
-              <div className="bg-black/30 backdrop-blur-sm rounded-lg p-4 border border-gray-800">
-                <p className="text-gray-300">Mood swings</p>
-              </div>
-              <div className="bg-black/30 backdrop-blur-sm rounded-lg p-4 border border-gray-800">
-                <p className="text-gray-300">Secretive behavior</p>
-              </div>
-              <div className="bg-black/30 backdrop-blur-sm rounded-lg p-4 border border-gray-800">
-                <p className="text-gray-300">Sleep changes</p>
-              </div>
-              <div className="bg-black/30 backdrop-blur-sm rounded-lg p-4 border border-gray-800">
-                <p className="text-gray-300">Financial issues</p>
-              </div>
-              <div className="bg-black/30 backdrop-blur-sm rounded-lg p-4 border border-gray-800">
-                <p className="text-gray-300">School/work problems</p>
-              </div>
+              {[
+                "Physical changes",
+                "Mood swings",
+                "Secretive behavior",
+                "Sleep changes",
+                "Financial issues",
+                "School/work problems"
+              ].map((sign, index) => (
+                <motion.div
+                  key={index}
+                  className="bg-black/30 backdrop-blur-sm rounded-lg p-4 border border-gray-800 flex items-center justify-center transition-colors duration-300 hover:border-red-600 hover:bg-black/50 cursor-pointer"
+                  whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                >
+                  <p className="text-gray-300 text-center">{sign}</p>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
 
