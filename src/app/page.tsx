@@ -676,7 +676,7 @@ export default function Home() {
               The <span className="text-red-600">Data</span> Behind the Crisis
             </h2>
             <p className="text-gray-300 max-w-2xl mx-auto text-base sm:text-lg italic">
-              Understanding the statistics helps us target our efforts where they're needed most
+              Understanding the statistics helps us target our efforts where they&apos;re needed most
             </p>
           </motion.div>
 
