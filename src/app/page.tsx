@@ -450,87 +450,6 @@ export default function Home() {
           </Canvas>
         </motion.div>
       </section>
-
-      <section className="py-16 bg-gray-900 text-white relative py-20 px-4">
-        <motion.div
-          className="absolute inset-0 z-0 opacity-0"
-          initial={{ opacity: 1 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1.5 }}
-          viewport={{ once: true }}
-        >
-          <div className="absolute inset-0 bg-[url('/pill-bg.png')] bg-repeat opacity-2 mix-blend-overlay"></div>
-          <div className="absolute top-1/2 left-1/4 w-1/3 h-1/3 rounded-full bg-red-800/15 blur-[150px]"></div>
-          <div className="absolute top-1/4 right-1/3 w-1/4 h-1/4 rounded-full bg-red-900/14 blur-[120px]"></div>
-        </motion.div>
-
-        <div className="max-w-6xl mx-auto relative z-10">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-              <span className="text-red-600">Real Stories</span> of Addiction
-            </h2>
-            <p className="text-gray-300 max-w-2xl mx-auto text-base sm:text-lg italic">
-              Behind every statistic is a human story. These are the voices that remind us why this fight matters.
-            </p>
-          </motion.div>
-          <div className="grid md:grid-cols-2 gap-8 mb-16">
-            <motion.div
-              className="bg-black/30 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <div className="relative pb-[56.25%] h-0">
-                <iframe
-                  className="absolute top-0 left-0 w-full h-full"
-                  src="https://www.youtube.com/embed/PfwO4rrd5CM"
-                  title="Opioid Addiction Story #1"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl sm:text-2xl font-bold mb-2">The Human Cost of Opioids</h3>
-                <p className="text-gray-300 text-sm sm:text-base">
-                  A raw glimpse into how opioid addiction destroys lives and tears families apart,
-                  revealing the true human cost behind Washington&apos;s deadliest drug crisis.
-                </p>
-              </div>
-            </motion.div>
-            <motion.div
-              className="bg-black/30 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              viewport={{ once: true }}
-            >
-              <div className="relative pb-[56.25%] h-0">
-                <iframe
-                  className="absolute top-0 left-0 w-full h-full"
-                  src="https://www.youtube.com/embed/N9ZKNyyWjDk"
-                  title="Journey to Recovery"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl sm:text-2xl font-bold mb-2">From Addiction to Recovery</h3>
-                <p className="text-gray-300 text-sm sm:text-base">
-                  A powerful account of strength and resilience in the face of opioid addiction,
-                  showing that recovery is possible with proper support and treatment.
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
       <section className="min-h-screen bg-black text-white relative py-20 px-4">
         <motion.div
           className="absolute inset-0 z-0"
@@ -755,6 +674,234 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+      <section className="min-h-screen bg-black text-white relative py-20 px-4">
+        <motion.div
+          className="absolute inset-0 z-0"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1.5 }}
+          viewport={{ once: true }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-gray-950 to-black"></div>
+          <div className="absolute top-1/4 left-1/4 w-1/3 h-1/3 rounded-full bg-red-800/10 blur-[120px]"></div>
+          <div className="absolute bottom-1/3 right-1/3 w-1/3 h-1/3 rounded-full bg-red-900/15 blur-[100px]"></div>
+        </motion.div>
+
+        <div className="max-w-6xl mx-auto relative z-10">
+          {/* Fentanyl Section */}
+          <motion.div
+            className="mb-24"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <motion.div
+              className="flex flex-col lg:flex-row items-center gap-8 mb-16"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <div className="lg:w-2/3">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+                  The Rise of <span className="text-red-600">Fentanyl</span>
+                </h2>
+                <p className="text-gray-300 text-lg leading-relaxed">
+                  Fentanyl has been the biggest game-changer in Washington&apos;s overdose trends. The Washington State Department of Health (DOH) reported that fentanyl-related deaths have increased from <span className="font-bold">224 deaths in 2019</span> to over <span className="font-bold text-red-500">2,300 deaths in 2023</span>.
+                </p>
+                <p className="text-gray-300 text-lg mt-4 leading-relaxed">
+                  What makes fentanyl so dangerous is how easily it can be hidden and pressed into counterfeit pills or mixed with powder without the victim realizing it. These pills often look identical to well-known medication like Xanax, Percocet, or Oxycodone, but even a single pill may contain a lethal dose.
+                </p>
+              </div>
+              <div className="lg:w-1/3 flex justify-center">
+                <motion.div
+                  className="relative w-48 h-48 rounded-full bg-red-900/20 flex items-center justify-center"
+                  animate={{
+                    boxShadow: ["0 0 20px 5px rgba(204, 0, 0, 0.2)", "0 0 40px 10px rgba(204, 0, 0, 0.4)", "0 0 20px 5px rgba(204, 0, 0, 0.2)"],
+                  }}
+                  transition={{
+                    repeat: Infinity,
+                    duration: 3,
+                    ease: "easeInOut",
+                  }}
+                >
+                  <motion.div
+                    className="text-6xl font-bold text-center"
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
+                    viewport={{ once: true }}
+                  >
+                    <span className="text-red-500">10x</span>
+                    <div className="text-sm font-normal mt-2 text-gray-300">Increase since 2019</div>
+                  </motion.div>
+                </motion.div>
+              </div>
+            </motion.div>
+
+            {/* Regional Disparities */}
+            <motion.div
+              className="mb-24"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+                Regional <span className="text-red-600">Disparities</span>
+              </h2>
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="bg-black/30 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 p-6">
+                  <h3 className="text-xl font-bold mb-4 text-red-500">Urban Impact</h3>
+                  <p className="text-gray-300">
+                    Counties such as King, Pierce, Snohomish, and Spokane report the highest total number of opioid-related deaths due to population size (each having more than 200 deaths).
+                  </p>
+                  <div className="flex justify-between mt-6">
+                    <motion.div
+                      className="text-center"
+                      whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                    >
+                      <p className="text-3xl font-bold text-white">King</p>
+                      <p className="text-sm text-gray-400">Highest total deaths</p>
+                    </motion.div>
+                    <motion.div
+                      className="text-center"
+                      whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                    >
+                      <p className="text-3xl font-bold text-white">Pierce</p>
+                      <p className="text-sm text-gray-400">High urban concentration</p>
+                    </motion.div>
+                    <motion.div
+                      className="text-center"
+                      whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                    >
+                      <p className="text-3xl font-bold text-white">Spokane</p>
+                      <p className="text-sm text-gray-400">Eastern WA hotspot</p>
+                    </motion.div>
+                  </div>
+                </div>
+                <div className="bg-black/30 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 p-6">
+                  <h3 className="text-xl font-bold mb-4 text-red-500">Rural Challenge</h3>
+                  <p className="text-gray-300">
+                    Rural areas such as Grays Harbor, Clallam, and Mason counties have some of the highest per capita overdose rates in the state. These regions often lack treatment centers, access to naloxone, or even primary care.
+                  </p>
+                  <div className="mt-6 space-y-3">
+                    <div className="flex items-center gap-2">
+                      <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                      <p className="text-gray-300">Limited treatment facilities</p>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                      <p className="text-gray-300">Restricted access to naloxone</p>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                      <p className="text-gray-300">Insufficient healthcare infrastructure</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Demographics */}
+            <motion.div
+              className="mb-24"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8">
+                Who&apos;s Being <span className="text-red-600">Affected?</span>
+              </h2>
+              <p className="text-gray-300 text-lg mb-6">
+                Previously, opioid misuse was most prevalent among adults aged 25 to 54. Now it increasingly affects both elders and teenagers, with alarming increases across racial demographics.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                <motion.div
+                  className="bg-black/30 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 p-6 text-center"
+                  whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                >
+                  <h4 className="text-xl font-bold mb-2 text-white">White</h4>
+                  <p className="text-5xl font-bold text-red-500 mb-1">+219%</p>
+                  <p className="text-sm text-gray-400">Increase from 2020 to 2023</p>
+                </motion.div>
+                <motion.div
+                  className="bg-black/30 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 p-6 text-center"
+                  whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                >
+                  <h4 className="text-xl font-bold mb-2 text-white">African American</h4>
+                  <p className="text-5xl font-bold text-red-500 mb-1">+410%</p>
+                  <p className="text-sm text-gray-400">Increase from 2020 to 2023</p>
+                </motion.div>
+                <motion.div
+                  className="bg-black/30 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 p-6 text-center"
+                  whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                >
+                  <h4 className="text-xl font-bold mb-2 text-white">Hispanic</h4>
+                  <p className="text-5xl font-bold text-red-500 mb-1">+230%</p>
+                  <p className="text-sm text-gray-400">Increase from 2020 to 2023</p>
+                </motion.div>
+              </div>
+              <p className="text-gray-300 text-lg">
+                This is often due to systemic barriers in accessing healthcare and culturally responsive treatment. The overdose crisis highlights issues of equity and access, not just substance availability.
+              </p>
+            </motion.div>
+
+            {/* Polysubstance Use */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8">
+                Polysubstance Use: <span className="text-red-600">A Dangerous Trend</span>
+              </h2>
+              <div className="flex flex-col lg:flex-row gap-8 items-center">
+                <div className="lg:w-2/3">
+                  <p className="text-gray-300 text-lg leading-relaxed">
+                    Another factor in overdose trends is polysubstance use—where people consume multiple drugs simultaneously, often unknowingly. Many fentanyl overdoses are connected with other stimulants such as methamphetamine or cocaine.
+                  </p>
+                  <p className="text-gray-300 text-lg mt-4 leading-relaxed">
+                    According to DOH, <span className="font-bold">nearly half of opioid-involved deaths in 2022</span> also involved another substance, and many users did not realize fentanyl was present. This makes education and awareness of naloxone even more important, as the traditional warning signs of opioid use may be masked by another drug.
+                  </p>
+                </div>
+                <div className="lg:w-1/3">
+                  <motion.div
+                    className="w-full aspect-square relative"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 1 }}
+                    viewport={{ once: true }}
+                  >
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-40 h-40 rounded-full bg-red-900/10 flex items-center justify-center backdrop-blur-md">
+                        <div className="text-center">
+                          <p className="text-4xl font-bold text-white">~50%</p>
+                          <p className="text-sm text-gray-300 mt-2">of opioid deaths involve multiple substances</p>
+                        </div>
+                      </div>
+                    </div>
+                    <motion.div
+                      className="absolute inset-0"
+                      animate={{
+                        boxShadow: ["inset 0 0 20px rgba(204, 0, 0, 0.3)", "inset 0 0 40px rgba(204, 0, 0, 0.5)", "inset 0 0 20px rgba(204, 0, 0, 0.3)"]
+                      }}
+                      transition={{
+                        repeat: Infinity,
+                        duration: 3,
+                        ease: "easeInOut"
+                      }}
+                    ></motion.div>
+                  </motion.div>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
       <section className="min-h-screen bg-gray-950 text-white relative py-20 px-4">
         {/* Background effects */}
         <motion.div
@@ -961,7 +1108,86 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-      {/* Resources Section */}
+      <section className="py-16 bg-gray-900 text-white relative py-20 px-4">
+        <motion.div
+          className="absolute inset-0 z-0 opacity-0"
+          initial={{ opacity: 1 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1.5 }}
+          viewport={{ once: true }}
+        >
+          <div className="absolute inset-0 bg-[url('/pill-bg.png')] bg-repeat opacity-2 mix-blend-overlay"></div>
+          <div className="absolute top-1/2 left-1/4 w-1/3 h-1/3 rounded-full bg-red-800/15 blur-[150px]"></div>
+          <div className="absolute top-1/4 right-1/3 w-1/4 h-1/4 rounded-full bg-red-900/14 blur-[120px]"></div>
+        </motion.div>
+
+        <div className="max-w-6xl mx-auto relative z-10">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+              <span className="text-red-600">Real Stories</span> of Addiction
+            </h2>
+            <p className="text-gray-300 max-w-2xl mx-auto text-base sm:text-lg italic">
+              Behind every statistic is a human story. These are the voices that remind us why this fight matters.
+            </p>
+          </motion.div>
+          <div className="grid md:grid-cols-2 gap-8 mb-16">
+            <motion.div
+              className="bg-black/30 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <div className="relative pb-[56.25%] h-0">
+                <iframe
+                  className="absolute top-0 left-0 w-full h-full"
+                  src="https://www.youtube.com/embed/PfwO4rrd5CM"
+                  title="Opioid Addiction Story #1"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl sm:text-2xl font-bold mb-2">The Human Cost of Opioids</h3>
+                <p className="text-gray-300 text-sm sm:text-base">
+                  A raw glimpse into how opioid addiction destroys lives and tears families apart,
+                  revealing the true human cost behind Washington&apos;s deadliest drug crisis.
+                </p>
+              </div>
+            </motion.div>
+            <motion.div
+              className="bg-black/30 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <div className="relative pb-[56.25%] h-0">
+                <iframe
+                  className="absolute top-0 left-0 w-full h-full"
+                  src="https://www.youtube.com/embed/N9ZKNyyWjDk"
+                  title="Journey to Recovery"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl sm:text-2xl font-bold mb-2">From Addiction to Recovery</h3>
+                <p className="text-gray-300 text-sm sm:text-base">
+                  A powerful account of strength and resilience in the face of opioid addiction,
+                  showing that recovery is possible with proper support and treatment.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
       <section className="py-16 bg-black text-white relative px-4">
         <motion.div
           className="absolute inset-0 z-0"
@@ -975,7 +1201,6 @@ export default function Home() {
         </motion.div>
 
         <div className="max-w-6xl mx-auto relative z-10">
-          {/* Section header */}
           <motion.div
             className="text-center mb-12"
             initial={{ opacity: 0, y: 20 }}
@@ -991,7 +1216,6 @@ export default function Home() {
             </p>
           </motion.div>
 
-          {/* Links */}
           <motion.div
             className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8"
             initial={{ opacity: 0 }}
@@ -1052,7 +1276,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
       <footer className="bg-black py-6 border-t border-gray-900">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
