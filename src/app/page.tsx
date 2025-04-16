@@ -428,7 +428,7 @@ export default function Home() {
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold pb-8"><span className="text-red-600">Overdose</span> Trends</h2>
           <p>
-            According to Washington Tracking Network, all SURDORS (State Unintentional Drug Overdose Reporting System) counties of any opioid-related overdose deaths have increased approximately <span className="font-bold">250% from 2020 to 2023.</span> With there over <span className="font-bold">2,000 Washingtonians</span> dying from opioids every year, many due to fentanyl. Both urban and rural areas are affected, with some counties in Washington seeing overdose rates way above the state average.
+            According to Washington Tracking Network's Drug and Overdose data, all SURDORS (State Unintentional Drug Overdose Reporting System) counties of any opioid-related overdose deaths have increased approximately <span className="font-bold">250% from 2020 to 2023.</span> With there over <span className="font-bold">2,000 Washingtonians</span> dying from opioids every year, many due to fentanyl. Both urban and rural areas are affected, with some counties in Washington seeing overdose rates way above the state average.
           </p>
         </motion.div>
         <motion.div
@@ -455,7 +455,7 @@ export default function Home() {
           transition={{ duration: 1.5 }}
           viewport={{ once: true }}
         >
-          <div className="absolute inset-0 bg-gradient-to-b from-black via-black to-gray-900"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-gray-950 via-black to-gray-950"></div>
           <div className="absolute top-1/3 left-1/4 w-1/2 h-1/2 rounded-full bg-red-800/10 blur-[150px]"></div>
           <div className="absolute bottom-1/4 right-1/3 w-1/3 h-1/3 rounded-full bg-red-900/10 blur-[120px]"></div>
         </motion.div>
@@ -487,7 +487,7 @@ export default function Home() {
               <h3 className="text-2xl sm:text-3xl font-bold mb-4 text-red-500">For Parents</h3>
               <p className="text-gray-300 text-sm sm:text-base mb-4 leading-relaxed">
                 Parents struggling with opioid use may face shame, fear, or lack of access to support, but getting
-                help is possible and recovery is real.
+                help is possible and recovery is real (FindTreatment.gov).
               </p>
               <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
                 At the same time, parents should be aware of their children&apos;s risk of exposure to opioids, even
@@ -509,7 +509,7 @@ export default function Home() {
               </p>
               <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
                 But what seems like a quick fix can turn deadly fast. One laced pill can be fatal. We want you to
-                have the knowledge and tools to protect yourself and your friends.
+                have the knowledge and tools to protect yourself and your friends (Teen Newsletter, 2022).
               </p>
             </motion.div>
           </div>
@@ -675,7 +675,7 @@ export default function Home() {
           transition={{ duration: 1.5 }}
           viewport={{ once: true }}
         >
-          <div className="absolute inset-0 bg-gradient-to-b from-gray-950 to-black"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-gray-950 via-black to-gray-950"></div>
           <div className="absolute top-1/4 left-1/4 w-1/3 h-1/3 rounded-full bg-red-800/10 blur-[120px]"></div>
           <div className="absolute bottom-1/3 right-1/3 w-1/3 h-1/3 rounded-full bg-red-900/15 blur-[100px]"></div>
         </motion.div>
@@ -703,7 +703,7 @@ export default function Home() {
                   Fentanyl has been the biggest game-changer in Washington&apos;s overdose trends. The Washington State Department of Health (DOH) reported that fentanyl-related deaths have increased from <span className="font-bold">224 deaths in 2019</span> to over <span className="font-bold text-red-500">2,300 deaths in 2023</span>.
                 </p>
                 <p className="text-gray-300 text-lg mt-4 leading-relaxed">
-                  What makes fentanyl so dangerous is how easily it can be hidden and pressed into counterfeit pills or mixed with powder without the victim realizing it. These pills often look identical to well-known medication like Xanax, Percocet, or Oxycodone, but even a single pill may contain a lethal dose.
+                  What makes fentanyl so dangerous is how easily it can be hidden and pressed into counterfeit pills or mixed with powder without the victim realizing it. These pills often look identical to well-known medication like Xanax, Percocet, or Oxycodone, but even a single pill may contain a lethal dose (NIDA, 2024).
                 </p>
               </div>
               <div className="lg:w-1/3 flex justify-center">
@@ -746,7 +746,7 @@ export default function Home() {
                 <div className="bg-black/30 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 p-6">
                   <h3 className="text-xl font-bold mb-4 text-red-500">Urban Impact</h3>
                   <p className="text-gray-300">
-                    Counties such as King, Pierce, Snohomish, and Spokane report the highest total number of opioid-related deaths due to population size (each having more than 200 deaths).
+                    Based on WSDOH data, Counties such as King, Pierce, Snohomish, and Spokane report the highest total number of opioid-related deaths due to population size (each having more than 200 deaths).
                   </p>
                   <div className="flex justify-between mt-6">
                     <motion.div
@@ -806,7 +806,7 @@ export default function Home() {
                 Who&apos;s Being <span className="text-red-600">Affected?</span>
               </h2>
               <p className="text-gray-300 text-lg mb-6">
-                Previously, opioid misuse was most prevalent among adults aged 25 to 54. Now it increasingly affects both elders and teenagers, with alarming increases across racial demographics.
+                Previously, based on WSDOH data, opioid misuse was most prevalent among adults aged 25 to 54. Now it increasingly affects both elders and teenagers, with alarming increases across racial demographics.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
                 <motion.div
@@ -854,7 +854,7 @@ export default function Home() {
                     Another factor in overdose trends is polysubstance use—where people consume multiple drugs simultaneously, often unknowingly. Many fentanyl overdoses are connected with other stimulants such as methamphetamine or cocaine.
                   </p>
                   <p className="text-gray-300 text-lg mt-4 leading-relaxed">
-                    According to DOH, <span className="font-bold">nearly half of opioid-involved deaths in 2022</span> also involved another substance, and many users did not realize fentanyl was present. This makes education and awareness of naloxone even more important, as the traditional warning signs of opioid use may be masked by another drug.
+                    According to WSDOH, <span className="font-bold">nearly half of opioid-involved deaths in 2022</span> also involved another substance, and many users did not realize fentanyl was present. This makes education and awareness of naloxone even more important, as the traditional warning signs of opioid use may be masked by another drug.
                   </p>
                 </div>
                 <div className="lg:w-1/3">
@@ -915,18 +915,12 @@ export default function Home() {
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
               The <span className="text-red-600">Data</span> Behind the Crisis
             </h2>
-            <p className="text-gray-300 max-w-2xl mx-auto text-base sm:text-lg italic">
+            <p className="text-gray-300 max-w-2xl mx-auto text-base sm:text-lg italic pb-2">
               Understanding the statistics helps us target our efforts where they&apos;re needed most
             </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <OpioidOverdoseChart />
+            <p className="text-gray-300 max-w-2xl mx-auto text-base sm:text-lg italic">
+              Data retrieved and calculated from Drug and Overdose data collected by the Washington Tracking Network.
+            </p>
           </motion.div>
           <motion.p
             className="text-3xl font-bold pt-24 text-center pb-8"
@@ -1092,6 +1086,15 @@ export default function Home() {
               were caused by <span className="font-bold text-red-600">opioids</span>.
             </motion.p>
           </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <OpioidOverdoseChart />
+          </motion.div>
         </div>
       </section>
       <section className="py-16 bg-gray-900 text-white relative py-20 px-4">
@@ -1182,7 +1185,7 @@ export default function Home() {
           transition={{ duration: 1.5 }}
           viewport={{ once: true }}
         >
-          <div className="absolute inset-0 bg-gradient-to-b from-gray-950 to-black"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-gray-900 to-black"></div>
           <div className="absolute bottom-0 right-1/4 w-1/3 h-1/3 rounded-full bg-red-800/10 blur-[130px]"></div>
         </motion.div>
 
@@ -1323,7 +1326,7 @@ export default function Home() {
                 © {new Date().getFullYear()} The Opioid Epidemic | By Ishaan Kothari, Inesh Dey, and Iris Dey
               </p>
             </div>
-            <div className="flex items-center">
+            <div className="flex items-center gap-8">
               <motion.div
                 className="flex items-center space-x-2"
                 whileHover={{ scale: 1.05 }}
@@ -1331,6 +1334,8 @@ export default function Home() {
                 <div className="w-2 h-2 rounded-full bg-red-500"></div>
                 <p className="text-gray-500 text-sm">Science Communication Project</p>
               </motion.div>
+              <a href="/Bibliography.pdf" className="text-sm">Works Cited</a>
+              <a href="/ProjectPaper.pdf" className="text-sm">Project Paper</a>
             </div>
           </div>
         </div>

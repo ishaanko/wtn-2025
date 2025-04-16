@@ -19,7 +19,7 @@ class Washington extends React.Component<WashingtonProps> {
             onPathClick(pathId);
         };
         return (
-            <div className={"Washington overflow-visible"}>
+            <div className={"Washington overflow-visible"} style={{ transform: "rotate(-5deg)" }}>
                 <svg xmlns="http://www.w3.org/2000/svg" version="1.2" baseProfile="tiny"
                      viewBox="0 0 810 535" strokeLinecap="round" strokeLinejoin="round" className={"overflow-visible"}>
                     <g id="Washington" transform="translate(5,5)" fill="#120203" stroke="#aa0000" strokeWidth="1" className={"overflow-visible"}>
