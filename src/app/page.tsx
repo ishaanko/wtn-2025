@@ -200,7 +200,7 @@ export default function Home() {
   }, []);
 
   function changeData(pathId: keyof typeof deathData): void {
-      const data = deathData[pathId];
+    const data = deathData[pathId];
 
     if (data) {
       const stats2020 = data["2020"];
@@ -645,62 +645,64 @@ export default function Home() {
             </p>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {/* Improved button styling with flex layout for better vertical alignment */}
               <motion.div
-                className="bg-black/30 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 p-6"
+                className="bg-black/30 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 p-6 flex flex-col"
                 whileHover={{ y: -5, transition: { duration: 0.2 } }}
               >
-                <h4 className="text-lg sm:text-xl font-bold mb-2">Talk early and often</h4>
-                <p className="text-gray-300 text-sm sm:text-base">
+                <h4 className="text-lg sm:text-xl font-bold mb-3">Talk early and often</h4>
+                <p className="text-gray-300 text-sm sm:text-base mt-auto">
                   Have open and judgment-free conversations about drug usage
                 </p>
               </motion.div>
 
+              {/* Apply the same pattern to all other action buttons */}
               <motion.div
-                className="bg-black/30 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 p-6"
+                className="bg-black/30 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 p-6 flex flex-col"
                 whileHover={{ y: -5, transition: { duration: 0.2 } }}
               >
-                <h4 className="text-lg sm:text-xl font-bold mb-2">Lock up medications</h4>
-                <p className="text-gray-300 text-sm sm:text-base">
+                <h4 className="text-lg sm:text-xl font-bold mb-3">Lock up medications</h4>
+                <p className="text-gray-300 text-sm sm:text-base mt-auto">
                   Keep prescription medications secure and out of reach
                 </p>
               </motion.div>
 
               <motion.div
-                className="bg-black/30 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 p-6"
+                className="bg-black/30 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 p-6 flex flex-col"
                 whileHover={{ y: -5, transition: { duration: 0.2 } }}
               >
-                <h4 className="text-lg sm:text-xl font-bold mb-2">Dispose safely</h4>
-                <p className="text-gray-300 text-sm sm:text-base">
+                <h4 className="text-lg sm:text-xl font-bold mb-3">Dispose safely</h4>
+                <p className="text-gray-300 text-sm sm:text-base mt-auto">
                   Use medication drop boxes or disposal pouches
                 </p>
               </motion.div>
 
               <motion.div
-                className="bg-black/30 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 p-6"
+                className="bg-black/30 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 p-6 flex flex-col"
                 whileHover={{ y: -5, transition: { duration: 0.2 } }}
               >
-                <h4 className="text-lg sm:text-xl font-bold mb-2">Know the signs</h4>
-                <p className="text-gray-300 text-sm sm:text-base">
+                <h4 className="text-lg sm:text-xl font-bold mb-3">Know the signs</h4>
+                <p className="text-gray-300 text-sm sm:text-base mt-auto">
                   Changes in mood, sleep or appearance can signal misuse
                 </p>
               </motion.div>
 
               <motion.div
-                className="bg-black/30 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 p-6"
+                className="bg-black/30 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 p-6 flex flex-col"
                 whileHover={{ y: -5, transition: { duration: 0.2 } }}
               >
-                <h4 className="text-lg sm:text-xl font-bold mb-2">Carry naloxone</h4>
-                <p className="text-gray-300 text-sm sm:text-base">
+                <h4 className="text-lg sm:text-xl font-bold mb-3">Carry naloxone</h4>
+                <p className="text-gray-300 text-sm sm:text-base mt-auto">
                   This is LIFE-SAVING medication that reverses overdoses
                 </p>
               </motion.div>
 
               <motion.div
-                className="bg-black/30 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 p-6"
+                className="bg-black/30 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 p-6 flex flex-col"
                 whileHover={{ y: -5, transition: { duration: 0.2 } }}
               >
-                <h4 className="text-lg sm:text-xl font-bold mb-2">Seek Help</h4>
-                <p className="text-gray-300 text-sm sm:text-base">
+                <h4 className="text-lg sm:text-xl font-bold mb-3">Seek Help</h4>
+                <p className="text-gray-300 text-sm sm:text-base mt-auto">
                   Resources exist to help both youth and adults
                 </p>
               </motion.div>
@@ -793,24 +795,24 @@ export default function Home() {
           >
             <OpioidOverdoseChart />
           </motion.div>
-            <motion.p
-              className="text-3xl font-bold pt-24 text-center pb-8"
-              initial={{ opacity: 0, y: -20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              Per county drug deaths from 2020 to 2023
-            </motion.p>
-            <motion.p
-              className="text-2xl font-normal text-center"
-              initial={{ opacity: 0, y: -20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              viewport={{ once: true }}
-            >
-              In this time, nearly <span className="font-bold text-red-600">every</span> recorded county has seen an increase in drug related deaths
-            </motion.p>
+          <motion.p
+            className="text-3xl font-bold pt-24 text-center pb-8"
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            Per county drug deaths from 2020 to 2023
+          </motion.p>
+          <motion.p
+            className="text-2xl font-normal text-center"
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            In this time, nearly <span className="font-bold text-red-600">every</span> recorded county has seen an increase in drug related deaths
+          </motion.p>
           <motion.div
             className="flex flex-col lg:flex-row-reverse py-16 gap-16 lg:items-center lg:justify-center"
             initial={{ opacity: 0 }}
@@ -907,7 +909,7 @@ export default function Home() {
               </motion.div>
             </motion.div>
           </motion.div>
-            <motion.div
+          <motion.div
             className="text-white py-10 px-4"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -958,7 +960,119 @@ export default function Home() {
             </motion.p>
           </motion.div>
         </div>
-        </section>
+      </section>
+      {/* Resources Section */}
+      <section className="py-16 bg-black text-white relative px-4">
+        <motion.div
+          className="absolute inset-0 z-0"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1.5 }}
+          viewport={{ once: true }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-b from-gray-950 to-black"></div>
+          <div className="absolute bottom-0 right-1/4 w-1/3 h-1/3 rounded-full bg-red-800/10 blur-[130px]"></div>
+        </motion.div>
+
+        <div className="max-w-6xl mx-auto relative z-10">
+          {/* Section header */}
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+              <span className="text-red-600">Resources</span> & Information
+            </h2>
+            <p className="text-gray-300 max-w-2xl mx-auto text-base sm:text-lg">
+              Learn more about opioid addiction, prevention, and recovery
+            </p>
+          </motion.div>
+
+          {/* Links */}
+          <motion.div
+            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ staggerChildren: 0.1, delayChildren: 0.3 }}
+            viewport={{ once: true }}
+          >
+            {[
+              {
+                title: "Washington Opioid Settlements",
+                url: "https://waportal.org/partners/washington-state-opioid-settlements",
+                description: "Learn about how settlement funds are being used to address the crisis"
+              },
+              {
+                title: "National Institute on Drug Abuse",
+                url: "https://nida.nih.gov/",
+                description: "National research organization dedicated to advancing addiction science"
+              },
+              {
+                title: "NIDA Opioid Research",
+                url: "https://nida.nih.gov/research-topics/opioids",
+                description: "Research findings and resources about opioid use and addiction"
+              },
+              {
+                title: "WA State Overdose Dashboard",
+                url: "https://doh.wa.gov/data-and-statistical-reports/washington-tracking-network-wtn/opioids/overdose-dashboard",
+                description: "Current data and statistics on overdoses in Washington State"
+              },
+              {
+                title: "Unintentional Drug Overdose Data",
+                url: "https://doh.wa.gov/data-and-statistical-reports/washington-tracking-network-wtn/opioids/unintentional-drug-overdose-data-sudors",
+                description: "SUDORS data on unintentional overdoses in Washington"
+              }
+            ].map((link, i) => (
+              <motion.a
+                key={i}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-black/40 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 p-6 flex flex-col h-full hover:border-red-800 transition-colors duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -5, transition: { duration: 0.2 } }}
+              >
+                <h3 className="text-xl font-bold mb-3 text-white">{link.title}</h3>
+                <p className="text-gray-400 text-sm flex-grow mb-4">{link.description}</p>
+                <div className="flex items-center text-red-500 text-sm font-semibold mt-auto">
+                  <span>Visit Resource</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </div>
+              </motion.a>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-black py-6 border-t border-gray-900">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <div className="mb-4 md:mb-0">
+              <p className="text-gray-500 text-sm">
+                © {new Date().getFullYear()} The Opioid Epidemic | By Ishaan Kothari, Inesh Dey, and Iris Dey
+              </p>
+            </div>
+            <div className="flex items-center">
+              <motion.div
+                className="flex items-center space-x-2"
+                whileHover={{ scale: 1.05 }}
+              >
+                <div className="w-2 h-2 rounded-full bg-red-500"></div>
+                <p className="text-gray-500 text-sm">Science Communication Project</p>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
