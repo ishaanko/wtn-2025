@@ -1,11 +1,7 @@
-# WTN - 2025
+# WTN 2025 - Science Communication Project
 
-Ishaan, Inesh, Iris
+This repository contains the source code for our 2025 Science Communication Project
 
-gdsgs
-dgs
-dg
-sdg
-sdfasd
-asd
-as
+By: Ishaan Kothari, Inesh Dey, and Iris Dey
+
+https://wtn-2025.vercel.app
